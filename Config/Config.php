@@ -1,6 +1,6 @@
 <?php
 
-const BASE_URL="http://localhost:8080/api-service/";
+const BASE_URL="http://localhost:api-service/";
 
 //Datos de conexion a la base de datos
 const CONNECTION=false;

@@ -47,3 +47,42 @@ function strClean($strCadena){
     $string = str_ireplace("==","",$string);
     return $string;
 }
+
+function jsonResponse(array $arrData,int $code)
+{
+    if (is_array($arrData)) {
+        header("HTTP/1.1 ".$code);
+        header("content-type:application/json");
+        echo json_encode($arrData, true);
+    }
+}
+
+function testString(string $data){
+    $re = '/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/';
+
+    if (preg_match($re, $data)){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function testNumber(string $data){
+    $re = '/^\+1\s?809|829|849\d{7}$/';
+
+    if (preg_match($re, $data)){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function validarEmail($email) {
+    $re = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
+
+    if (preg_match($re, $email)) {
+        return true;
+    } else {
+        return false;
+    }
+}
